@@ -1,0 +1,9 @@
+{
+  "name": "algorithms-and-data-structures",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/jonathonhawkins92/algorithms-and-data-structures.git",
+  "author": "jonathon hawkins",
+  "license": "MIT",
+  "private": true
+}
