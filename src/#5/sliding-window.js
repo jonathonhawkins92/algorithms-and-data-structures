@@ -1,5 +1,5 @@
-const assert = require("assert");
-const { time } = require("../../helpers");
+import assert from "assert";
+import { time } from "../../helpers";
 
 function maxSubarraySum(arr, n) {
   if (arr.length < n) return null;

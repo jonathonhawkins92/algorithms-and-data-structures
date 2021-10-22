@@ -1,6 +1,6 @@
-const { performance } = require("perf_hooks");
+import { performance } from "perf_hooks";
 
-module.exports.time = function (fn) {
+export const time = function (fn) {
   let t1 = performance.now();
   fn();
   let t2 = performance.now();
@@ -8,6 +8,14 @@ module.exports.time = function (fn) {
   console.log(`Time Elapsed: ${time} seconds.`);
 };
 
-module.exports.compareArray = function (arr1, arr2) {
+export const compareArray = function (arr1, arr2) {
   return JSON.stringify(arr1) === JSON.stringify(arr2);
+};
+
+export const createFrequency = function (str) {
+  const freq = {};
+  for (const s of str) {
+    freq[s] = (freq[s] || 0) + 1;
+  }
+  return freq;
 };

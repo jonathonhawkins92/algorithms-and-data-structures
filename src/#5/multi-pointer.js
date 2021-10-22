@@ -1,5 +1,5 @@
-const assert = require("assert");
-const { time, compareArray } = require("../../helpers");
+import assert from "assert";
+import { time, compareArray } from "../../helpers.js";
 
 function sumZero(arr) {
   const lookup = {};
