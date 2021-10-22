@@ -1,11 +1,16 @@
 import { performance } from "perf_hooks";
 
-export const time = function (fn) {
+export const time = function (fn, name) {
+  fn(); // running once to remove first run advantage
   let t1 = performance.now();
   fn();
   let t2 = performance.now();
   const time = (t2 - t1) / 100;
-  console.log(`Time Elapsed: ${time} seconds.`);
+  if (name) {
+    console.log(`${name} ran in:	${time} seconds.`);
+  } else {
+    console.log(`Time Elapsed:	${time} seconds.`);
+  }
 };
 
 export const compareArray = function (arr1, arr2) {
