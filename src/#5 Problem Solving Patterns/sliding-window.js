@@ -1,5 +1,5 @@
-const { performance } = require("perf_hooks");
 const assert = require("assert");
+const { time } = require("../../helpers");
 
 function maxSubarraySum(arr, n) {
   if (arr.length < n) return null;
@@ -17,20 +17,10 @@ function maxSubarraySum(arr, n) {
   return result;
 }
 
-function result(t1, t2) {
-  const time = (t2 - t1) / 100;
-  console.log(`Time Elapsed: ${time} seconds.`);
-}
-
-{
-  let t1 = performance.now();
+time(() => {
   assert.equal(maxSubarraySum([1, 2, 5, 2, 8, 1, 5], 2), 10);
   assert.equal(maxSubarraySum([1, 2, 5, 2, 8, 1, 5], 4), 17);
   assert.equal(maxSubarraySum([4, 2, 1, 6], 1), 6);
   assert.equal(maxSubarraySum([4, 2, 1, 6, 4], 4), 13);
   assert.equal(maxSubarraySum([], 4), null);
-  let t2 = performance.now();
-  result(t1, t2);
-}
-
-console.log("--- Victory 🎉 ---");
+});

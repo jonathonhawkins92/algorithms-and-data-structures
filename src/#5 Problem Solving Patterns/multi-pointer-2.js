@@ -1,5 +1,5 @@
-const { performance } = require("perf_hooks");
 const assert = require("assert");
+const { time } = require("../../helpers");
 
 function countUniqueValues(arr) {
   let result = {};
@@ -23,22 +23,13 @@ function twoPointerCountUniqueValues(arr) {
   return i + 1;
 }
 
-function result(t1, t2) {
-  const time = (t2 - t1) / 100;
-  console.log(`Time Elapsed: ${time} seconds.`);
-}
-
-{
-  let t1 = performance.now();
+time(() => {
   assert.equal(countUniqueValues([1, 1, 1, 1, 1, 2]), 2);
   assert.equal(countUniqueValues([1, 2, 3, 4, 4, 4, 4, 7, 7, 12, 12, 13]), 7);
   assert.equal(countUniqueValues([]), 0);
   assert.equal(countUniqueValues([-2, -1, -1, 0, 1]), 4);
-  let t2 = performance.now();
-  result(t1, t2);
-}
-{
-  let t1 = performance.now();
+});
+time(() => {
   assert.equal(twoPointerCountUniqueValues([1, 1, 1, 1, 1, 2]), 2);
   assert.equal(
     twoPointerCountUniqueValues([1, 2, 3, 4, 4, 4, 4, 7, 7, 12, 12, 13]),
@@ -46,8 +37,4 @@ function result(t1, t2) {
   );
   assert.equal(twoPointerCountUniqueValues([]), 0);
   assert.equal(twoPointerCountUniqueValues([-2, -1, -1, 0, 1]), 4);
-  let t2 = performance.now();
-  result(t1, t2);
-}
-
-console.log("--- Victory 🎉 ---");
+});

@@ -1,4 +1,5 @@
 const assert = require("assert");
+const { time } = require("../../helpers");
 
 function freq(str) {
   const freq = {};
@@ -27,33 +28,38 @@ function validAnagram(str1, str2) {
   return true;
 }
 
-assert.equal(validAnagram("bob", "bbo"), true);
-assert.equal(validAnagram("bob", "boo"), false);
-assert.equal(validAnagram("Conversation", "Voices rant on"), true);
-assert.equal(validAnagram("Tar", "Rat"), true);
-assert.equal(validAnagram("Arc", "Car"), true);
-assert.equal(validAnagram("Elbow", "Below"), true);
-assert.equal(validAnagram("State", "Taste"), true);
-assert.equal(validAnagram("Cider", "Cried"), true);
-assert.equal(validAnagram("Dusty", "Study"), true);
-assert.equal(validAnagram("Night", "Thing"), true);
-assert.equal(validAnagram("Inch", "Chin"), true);
-assert.equal(validAnagram("Brag", "Grab"), true);
-assert.equal(validAnagram("Cat", "Act"), true);
-assert.equal(validAnagram("Bored", "Robed"), true);
-assert.equal(validAnagram("Save", "Vase"), true);
-assert.equal(validAnagram("Angel", "Glean"), true);
-assert.equal(validAnagram("Stressed", "Desserts"), true);
-assert.equal(validAnagram("Dormitory", "Dirty room"), true);
-assert.equal(validAnagram("School master", "The classroom"), true);
-assert.equal(validAnagram("Conversation", "Voices rant on"), true);
-assert.equal(validAnagram("Listen", "Silent"), true);
-assert.equal(validAnagram("Astronomer", "Moon starer"), true);
-assert.equal(validAnagram("The eyes", "They see"), true);
-assert.equal(validAnagram("A gentleman", "Elegant man"), true);
-assert.equal(validAnagram("Funeral", "Real fun"), true);
-assert.equal(validAnagram("The Morse Code", "Here come dots"), true);
-assert.equal(validAnagram("Eleven plus two", "Twelve plus one"), true);
-assert.equal(validAnagram("Slot machines", "Cash lost in me"), true);
-assert.equal(validAnagram("Fourth of July", "Joyful Fourth"), true);
-console.log("--- Victory 🎉 ---");
+time(() => assert.equal(validAnagram("bob", "bbo"), true));
+time(() => assert.equal(validAnagram("bob", "boo"), false));
+time(() => assert.equal(validAnagram("Conversation", "Voices rant on"), true));
+time(() => assert.equal(validAnagram("Tar", "Rat"), true));
+time(() => assert.equal(validAnagram("Arc", "Car"), true));
+time(() => assert.equal(validAnagram("Elbow", "Below"), true));
+time(() => assert.equal(validAnagram("State", "Taste"), true));
+time(() => assert.equal(validAnagram("Cider", "Cried"), true));
+time(() => assert.equal(validAnagram("Dusty", "Study"), true));
+time(() => assert.equal(validAnagram("Night", "Thing"), true));
+time(() => assert.equal(validAnagram("Inch", "Chin"), true));
+time(() => assert.equal(validAnagram("Brag", "Grab"), true));
+time(() => assert.equal(validAnagram("Cat", "Act"), true));
+time(() => assert.equal(validAnagram("Bored", "Robed"), true));
+time(() => assert.equal(validAnagram("Save", "Vase"), true));
+time(() => assert.equal(validAnagram("Angel", "Glean"), true));
+time(() => assert.equal(validAnagram("Stressed", "Desserts"), true));
+time(() => assert.equal(validAnagram("Dormitory", "Dirty room"), true));
+time(() => assert.equal(validAnagram("School master", "The classroom"), true));
+time(() => assert.equal(validAnagram("Conversation", "Voices rant on"), true));
+time(() => assert.equal(validAnagram("Listen", "Silent"), true));
+time(() => assert.equal(validAnagram("Astronomer", "Moon starer"), true));
+time(() => assert.equal(validAnagram("The eyes", "They see"), true));
+time(() => assert.equal(validAnagram("A gentleman", "Elegant man"), true));
+time(() => assert.equal(validAnagram("Funeral", "Real fun"), true));
+time(() =>
+  assert.equal(validAnagram("The Morse Code", "Here come dots"), true)
+);
+time(() =>
+  assert.equal(validAnagram("Eleven plus two", "Twelve plus one"), true)
+);
+time(() =>
+  assert.equal(validAnagram("Slot machines", "Cash lost in me"), true)
+);
+time(() => assert.equal(validAnagram("Fourth of July", "Joyful Fourth"), true));

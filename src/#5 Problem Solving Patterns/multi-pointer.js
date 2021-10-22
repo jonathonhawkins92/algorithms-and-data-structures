@@ -1,5 +1,5 @@
-const { performance } = require("perf_hooks");
 const assert = require("assert");
+const { time, compareArray } = require("../../helpers");
 
 function sumZero(arr) {
   const lookup = {};
@@ -31,49 +31,39 @@ function whileSumZero(arr) {
   }
 }
 
-function compareArr(arr1, arr2) {
-  return JSON.stringify(arr1) === JSON.stringify(arr2);
-}
-
-function result(t1, t2) {
-  const time = (t2 - t1) / 100;
-  console.log(`Time Elapsed: ${time} seconds.`);
-}
-
-{
-  let t1 = performance.now();
+time(() => {
   assert.equal(
-    compareArr(whileSumZero([-3, -2, -1, 0, 1, 2, 3]), [-3, 3]),
+    compareArray(whileSumZero([-3, -2, -1, 0, 1, 2, 3]), [-3, 3]),
     true
   );
   assert.equal(whileSumZero([-2, 0, 1, 3]), undefined);
-  assert.equal(compareArr(whileSumZero([-2, -1, 0, 1, 2, 3]), [-2, 2]), true);
+  assert.equal(compareArray(whileSumZero([-2, -1, 0, 1, 2, 3]), [-2, 2]), true);
   assert.equal(
-    compareArr(whileSumZero([-2, -1, 0, 1, 2, 3, 4, 5]), [-2, 2]),
+    compareArray(whileSumZero([-2, -1, 0, 1, 2, 3, 4, 5]), [-2, 2]),
     true
   );
   assert.equal(whileSumZero([1, 2, 3]), undefined);
   assert.equal(
-    compareArr(whileSumZero([-2, -1, 0, 1, 2, 3, 4, 5]), [-2, 2]),
+    compareArray(whileSumZero([-2, -1, 0, 1, 2, 3, 4, 5]), [-2, 2]),
     true
   );
-  let t2 = performance.now();
-  result(t1, t2);
-}
-{
-  let t1 = performance.now();
-  assert.equal(compareArr(sumZero([-3, -2, -1, 0, 1, 2, 3]), [-3, 3]), true);
-  assert.equal(sumZero([-2, 0, 1, 3]), undefined);
-  assert.equal(compareArr(sumZero([-2, -1, 0, 1, 2, 3]), [-2, 2]), true);
-  assert.equal(compareArr(sumZero([-2, -1, 0, 1, 2, 3, 4, 5]), [-2, 2]), true);
-  assert.equal(sumZero([1, 2, 3]), undefined);
-  assert.equal(compareArr(sumZero([-2, -1, 0, 1, 2, 3, 4, 5]), [-2, 2]), true);
-  assert.equal(
-    compareArr(sumZero([-4, -3, -2, -1, 0, 1, 2, 5]), [-2, 2]),
-    true
-  );
-  let t2 = performance.now();
-  result(t1, t2);
-}
+});
 
-console.log("--- Victory 🎉 ---");
+time(() => {
+  assert.equal(compareArray(sumZero([-3, -2, -1, 0, 1, 2, 3]), [-3, 3]), true);
+  assert.equal(sumZero([-2, 0, 1, 3]), undefined);
+  assert.equal(compareArray(sumZero([-2, -1, 0, 1, 2, 3]), [-2, 2]), true);
+  assert.equal(
+    compareArray(sumZero([-2, -1, 0, 1, 2, 3, 4, 5]), [-2, 2]),
+    true
+  );
+  assert.equal(sumZero([1, 2, 3]), undefined);
+  assert.equal(
+    compareArray(sumZero([-2, -1, 0, 1, 2, 3, 4, 5]), [-2, 2]),
+    true
+  );
+  assert.equal(
+    compareArray(sumZero([-4, -3, -2, -1, 0, 1, 2, 5]), [-2, 2]),
+    true
+  );
+});

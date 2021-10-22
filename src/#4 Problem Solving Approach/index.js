@@ -30,9 +30,3 @@ function charCount(
 } // 0(n)
 
 console.log(charCount("hello", { isLowerCase: true }));
-
-
-for (let index = 0; index < array.length; index++) {
-  const element = array[index];
-  
-}
