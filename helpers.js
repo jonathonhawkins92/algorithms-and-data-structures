@@ -1,7 +1,6 @@
 import { performance } from "perf_hooks";
 
 export const time = function (fn, name) {
-  fn(); // running once to remove first run advantage
   let t1 = performance.now();
   fn();
   let t2 = performance.now();
