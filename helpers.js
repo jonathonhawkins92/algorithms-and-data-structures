@@ -12,7 +12,7 @@ export const time = function (fn, name) {
   }
 };
 
-export const compareArray = function (arr1, arr2) {
+export const compareObjects = function (arr1, arr2) {
   return JSON.stringify(arr1) === JSON.stringify(arr2);
 };
 

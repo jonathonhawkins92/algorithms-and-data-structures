@@ -1,5 +1,5 @@
 import assert from "assert";
-import { compareArray } from "../../helpers.js";
+import { compareObjects } from "../../helpers.js";
 
 function flatten(arr) {
   var result = [];
@@ -13,13 +13,13 @@ function flatten(arr) {
   return result;
 }
 
-assert.equal(compareArray(flatten([1, 2, 3, [4, 5]]), [1, 2, 3, 4, 5]), true);
+assert.equal(compareObjects(flatten([1, 2, 3, [4, 5]]), [1, 2, 3, 4, 5]), true);
 assert.equal(
-  compareArray(flatten([1, [2, [3, 4], [[5]]]]), [1, 2, 3, 4, 5]),
+  compareObjects(flatten([1, [2, [3, 4], [[5]]]]), [1, 2, 3, 4, 5]),
   true
 );
-assert.equal(compareArray(flatten([[1], [2], [3]]), [1, 2, 3]), true);
+assert.equal(compareObjects(flatten([[1], [2], [3]]), [1, 2, 3]), true);
 assert.equal(
-  compareArray(flatten([[[[1], [[[2]]], [[[[[[[3]]]]]]]]]]), [1, 2, 3]),
+  compareObjects(flatten([[[[1], [[[2]]], [[[[[[[3]]]]]]]]]]), [1, 2, 3]),
   true
 );
